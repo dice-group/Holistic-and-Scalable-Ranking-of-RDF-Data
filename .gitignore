@@ -1,0 +1,24 @@
+/target/
+# Eclipse 
+*.class
+.classpath
+.project
+target
+.settings
+target/
+bin/
+index/
+Input Data/
+abc.txt
+
+data/
+
+*.ttl
+*.txt
+
+# Project-based exclusions
+**/.clover/
+log.out
+lubm.ttl
+ekaw-2012-complete.rdf
+/target/
