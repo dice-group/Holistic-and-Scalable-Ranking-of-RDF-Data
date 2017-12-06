@@ -265,17 +265,6 @@ section.classesSelction .feature-item h3 {
 	font-size: 30px;
 }
 
-section.classesSelction .feature-item i {
-	font-size: 80px;
-	display: block;
-	margin-bottom: 15px;
-	background: -webkit-linear-gradient(to left, #7b4397, #dc2430);
-	background: linear-gradient(to left, #7b4397, #dc2430);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-
-
 section.resultsRanking {
 	text-align: center;
 }
@@ -292,7 +281,78 @@ section.resultsRanking h2 i {
 section.resultsRanking ul.list-social {
 	margin-bottom: 0;
 }
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
 
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+.option-input:checked {
+  background: #40e0d0;
+}
+.option-input:checked::before {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 40px;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input.radio {
+  border-radius: 50%;
+}
+.option-input.radio::after {
+  border-radius: 50%;
+}
 section.resultsRanking ul.list-social li a {
 	font-size: 40px;
 	line-height: 80px;
@@ -336,9 +396,9 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active,
 }
 
 .bg-secondary {
-	background: #72cdff;
-	background: -webkit-linear-gradient(#72cdff, #aad2ef);
-	background: linear-gradient(#72cdff, #aad2ef)
+	background: #24aadc;
+	background: -webkit-linear-gradient(#24aadc, #063b3f);
+	background: linear-gradient(#24aadc, #063b3f)
 }
 
 .text-primary {
@@ -354,6 +414,18 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active,
 	color: white;
 	border: 1px solid;
 	border-color: white;
+}
+
+.btn-outlinesubmit {
+	color: black;
+	border: 1px solid;
+	border-color: white;
+}
+.btn-outlinesubmit:hover, .btn-outlinesubmit:focus, .btn-outlinesubmit:active,
+	.btn-outlinesubmit.active {
+	color: white;
+	border-color: #040607;
+	background-color: #040607;
 }
 
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active,

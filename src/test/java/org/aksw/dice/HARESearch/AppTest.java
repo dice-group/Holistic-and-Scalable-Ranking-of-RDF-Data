@@ -1,4 +1,4 @@
-package org.aksw.simba.searcher.autoindex;
+package org.aksw.dice.HARESearch;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
