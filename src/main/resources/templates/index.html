@@ -8,8 +8,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-
-<title>New Age - Start Bootstrap Theme</title>
+<script src="js/interaction.js"></script>
+<title>HARE</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -73,27 +73,25 @@
 			<form id="datasetList">
 				<fieldset class="form-group row">
 					<div class="col-sm-10">
-						<select class="form-control form-control-lg">
-							<option> DBpedia</option>
-							<option> Dataset 2</option>
-							<option> Dataset 3</option>
-							<option> Dataset 4</option>
-							<option> Dataset 5</option>
-							<option> Dataset 6</option>
+						<select class="form-control form-control-lg" id="selectedDataset">
+							<option value="dbpedia"> DBpedia</option>
+							<option value="airport"> Airport</option>
+							<option value="test_result">  Test</option>
 						</select>
 					</div>
 				</fieldset>
 				<div class="form-group row">
 					<div class="offset-sm-2 col-sm-10">
 						<button type="submit"
-							class="btn btn-outlinesubmit btn-xl js-scroll-trigger">Submit</button>
+							class="btn btn-outlinesubmit btn-xl js-scroll-trigger"
+							onclick="getClassList()">Submit</button>
 					</div>
 				</div>
 			</form>
 		</div>
 	</section>
 
-	<section class="classesSelction bg-secondary" id="classesSelction">
+	<section class="classesSelction bg-primary" id="classesSelction">
 		<div class="container">
 			<div class="section-heading text-center">
 				<h2>Class</h2>
@@ -103,17 +101,9 @@
 
 			<form id="classList">
 				<fieldset class="form-group row">
-					<legend class="col-form-legend col-sm-2">Radios</legend>
+
 					<div class="col-sm-10">
-						<div class="form-check">
-							<label> <input type="radio" class="option-input radio"
-								name="example" checked /> Radio option
-							</label> <label> <input type="radio" class="option-input radio"
-								name="example" /> Radio option
-							</label> <label> <input type="radio" class="option-input radio"
-								name="example" /> Radio option
-							</label>
-						</div>
+						<div class="form-check" id="classList"></div>
 					</div>
 				</fieldset>
 				<div class="form-group row">
@@ -127,73 +117,7 @@
 
 	</section>
 
-	<section class="resultsRanking bg-primary" id="resultsRanking">
-		<div class="container">
-			<div class="col-md-8 mx-auto">
-				<h2 class="section-heading">Entities and Triples With Rankings</h2>
-				<table class="table">
-					<thead class="thead-inverse">
-						<tr>
-							<th>#</th>
-							<th>Entities</th>
-							<th>Rank</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">1</th>
-							<td>Mark</td>
-							<td>Otto</td>
 
-						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Jacob</td>
-							<td>Thornton</td>
-
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td>Larry</td>
-							<td>the Bird</td>
-
-						</tr>
-					</tbody>
-				</table>
-
-				<table class="table">
-					<thead class="thead-inverse">
-						<tr>
-							<th>#</th>
-							<th>Triples</th>
-							<th>Rank</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">1</th>
-							<td>Mark</td>
-							<td>Otto</td>
-
-						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Jacob</td>
-							<td>Thornton</td>
-
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td>Larry</td>
-							<td>the Bird</td>
-
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-		</div>
-	</section>
 
 	<footer>
 		<div class="container">
@@ -208,6 +132,7 @@
 
 	<!-- Custom scripts for this template -->
 	<script src="js/new-age.min.js"></script>
+
 
 </body>
 
