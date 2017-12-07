@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	$("#classesSelction").hide();
 	$("#resultsRanking").hide();
+	$("#datasetList").submit(function(e) {
+		e.preventDefault();
+	});
 });
 
 function printclass(classelemenent) {
