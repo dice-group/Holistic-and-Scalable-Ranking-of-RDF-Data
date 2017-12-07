@@ -7,22 +7,33 @@ $(document).ready(function() {
 });
 
 function printclass(classelemenent) {
-	var content = "<label> <input type=\"radio\" class=\"option-input radio\" "
-			+ "name=\"example\" />" + classelemenent + "</label>"
 
 }
 
 function printClasses(data) {
+	$("#dataset").hide();
 	$("#classesSelction").show();
 	$("#resultsRanking").hide();
-	$("#dataset").hide();
-	classes = data;
-	$("#classList").html('');
-	$.each(classes, function(i, v) {
-		printclass(v.uri);
-	});
-}
 
+	classes = data;
+	var content = "";
+	$
+			.each(
+					classes,
+					function(i, v) {
+						content += "<label> <input type=\"radio\" class=\"option-input radio\" "
+								+ "name=\"example\" /  value= \""
+								+ v.uri
+								+ "\"  >" + v.uri + "</label> </br>"
+					});
+
+	content += "<div class=\"form-group row\">"
+			+ "<div class=\"offset-sm-2 col-sm-10\">"
+			+ "<button type=\"submit\"class=\"btn btn-outlinesubmit btn-xl js-scroll-trigger\">Submit</button> </div>"
+			+ "</div>"
+
+	$("#classList").append($(content));
+}
 
 function getClassList() {
 	// get the form data using another method
@@ -36,7 +47,6 @@ function getClassList() {
 		},
 		dataType : "json",// type of data returned
 		success : function(data) {
-			console.log(data);
 			printClasses(data);
 		}
 	})
