@@ -32,7 +32,8 @@ function getClassList() {
 			datasetName : datasetName,// data to be sent
 		},
 		dataType : "json",// type of data returned
-		success : function(data, status, xhr) {
+		success : function(data) {
+			console.log(data);
 			printClasses(data);
 		}
 	})

@@ -97,8 +97,4 @@ public class RDFDumpHandler {
 		return results;
 	}
 
-	public static void main(String[] args) {
-		RDFDumpHandler res = new RDFDumpHandler();
-		res.getAllResults("demo");
-	}
 }
