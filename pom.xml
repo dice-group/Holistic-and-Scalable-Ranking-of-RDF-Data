@@ -53,7 +53,6 @@
 			<version>3.4.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.jena/jena-arq -->
 		<dependency>
 			<groupId>org.apache.jena</groupId>
 			<artifactId>jena-arq</artifactId>

@@ -1,9 +1,12 @@
 package org.aksw.dice.HARE.web;
 
 import org.aksw.dice.HARE.input.RDFDumpHandler;
+import org.apache.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,30 +28,26 @@ public class SearchResourceController {
 	public String index() {
 		return "index";
 	}
-	
-	
 
 	@RequestMapping(value = "/rankResults")
-	public String getRank(Model model, @PathVariable String datasetName, @PathVariable String className) {
+	public ResponseEntity<?> getRank(@PathVariable String className) {
 		RDFDumpHandler entityRepo = new RDFDumpHandler();
-		model.addAttribute("entities", new Gson().toJson(entityRepo.getResults(this.currentDataset, className)));
-		return "results";
+		return ResponseEntity.ok(new Gson().toJson(entityRepo.getResults(this.currentDataset, className)));
 	}
 
-	@RequestMapping(value = "/getAllRankedResources/{datasetName}")
-	public String getAllResult(Model model, @PathVariable String datasetName) {
+	@RequestMapping(value = "/getAllRankedResources/")
+	public ResponseEntity<?> getAllResult(@RequestParam String datasetName) {
 		RDFDumpHandler entityRepo = new RDFDumpHandler();
+		return ResponseEntity.ok(new Gson().toJson(entityRepo.getAllResults(datasetName)));
 
-		model.addAttribute("entities", new Gson().toJson(entityRepo.getAllResults(datasetName)));
-		return "results";
 	}
 
 	@RequestMapping(value = "/getClass", method = RequestMethod.POST)
-	public String getAllClass(Model model, @RequestParam String datasetName) {
+	public ResponseEntity<?> getAllClass(@RequestParam String datasetName) {
 		RDFDumpHandler entityRepo = new RDFDumpHandler();
 		this.currentDataset = datasetName;
-		model.addAttribute("entities", new Gson().toJson(entityRepo.getAllResults(datasetName)));
-		return "choiceClass";
+		return ResponseEntity.ok(new Gson().toJson(entityRepo.getAllClassName(datasetName)));
+
 	}
 
 }

@@ -11,7 +11,7 @@ index/
 Input Data/
 abc.txt
 
-data/
+dataset/
 
 *.ttl
 *.txt

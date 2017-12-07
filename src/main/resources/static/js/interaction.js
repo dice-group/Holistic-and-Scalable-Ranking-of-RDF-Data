@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$("#classesSelction").hide();
-
+	$("#resultsRanking").hide();
 });
 
 function printclass(classelemenent) {
@@ -9,21 +9,31 @@ function printclass(classelemenent) {
 
 }
 
+function printClasses(data) {
+	$("#classesSelction").show();
+	$("#resultsRanking").hide();
+	$("#dataset").hide();
+	classes = data;
+	$("#classList").html('');
+	$.each(classes, function(i, v) {
+		printclass(v.uri);
+	});
+}
+
+
 function getClassList() {
 	// get the form data using another method
-	var answer = document.getElementById("#selectedDataset");
-	datasetName = answer[answer.selectedIndex].value
-
+	var e = document.getElementById("selectedDataset");
+	datasetName = e.options[e.selectedIndex].value;
 	$.ajax({
 		url : "/getClass",// servlet URL that gets
 		type : "POST",// request type, can be GET
 		data : {
-			datasetname : datasetName,// data to be sent
+			datasetName : datasetName,// data to be sent
 		},
 		dataType : "json",// type of data returned
 		success : function(data, status, xhr) {
-			printDocument(data);
+			printClasses(data);
 		}
 	})
-}
 };
