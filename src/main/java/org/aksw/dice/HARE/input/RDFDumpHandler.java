@@ -12,9 +12,7 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.RSIterator;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileManager;
 
@@ -28,11 +26,19 @@ public class RDFDumpHandler {
 		FileManager.get().addLocatorClassLoader(RDFDumpHandler.class.getClassLoader());
 
 		Model model = FileManager.get().loadModel("dataset/" + datasetName + ".ttl");
-
-		String queryString = "SELECT ?entity ?r\n" + "WHERE {\n" + "?entity <http://aksw.org/property/hareRank> ?r . "
-				+ "entity a <" + classname + ">.\n" + "FILTER (\n"
-				+ "     !EXISTS {?entity a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>" + "})}";
-
+		String queryString = null;
+		if (classname.contains("#Statement")) {
+			queryString = "SELECT ?entity ?r\n" + "WHERE {\n" + "?entity <http://aksw.org/property/hareRank> ?r . \n "
+					+ "?entity a  <" + classname + ">.\n }";
+		} else if (classname.equals("All")) {
+			queryString = "SELECT ?entity ?r\n" + "WHERE {\n" + "?entity <http://aksw.org/property/hareRank> ?r \n"
+					+ "FILTER (\n" + "     !EXISTS {?entity a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>"
+					+ "})}";
+		} else {
+			queryString = "SELECT ?entity ?r\n" + "WHERE {\n" + "?entity <http://aksw.org/property/hareRank> ?r . \n "
+					+ "?entity a  <" + classname + ">.\n" + "FILTER (\n"
+					+ "     !EXISTS {?entity a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>" + "})}";
+		}
 		Query query = QueryFactory.create(queryString);
 
 		QueryExecution qexec = QueryExecutionFactory.create(query, model);
@@ -40,7 +46,8 @@ public class RDFDumpHandler {
 			ResultSet resultQuery = qexec.execSelect();
 			while (resultQuery.hasNext()) {
 				QuerySolution soln = resultQuery.nextSolution();
-				results.add(new Entity(soln.getResource("entity").toString(), soln.getLiteral("r").toString()));
+				String rank = soln.getLiteral("r").toString();
+				results.add(new Entity(soln.getResource("entity").toString(), rank.substring(0, rank.indexOf("^"))));
 
 			}
 		} finally {
@@ -66,7 +73,8 @@ public class RDFDumpHandler {
 			ResultSet resultQuery = qexec.execSelect();
 			while (resultQuery.hasNext()) {
 				QuerySolution soln = resultQuery.nextSolution();
-				results.add(new Entity(soln.getResource("entity").toString(), soln.getLiteral("r").toString()));
+				String rank = soln.getLiteral("r").toString();
+				results.add(new Entity(soln.getResource("entity").toString(), rank.substring(0, rank.indexOf("^"))));
 
 			}
 		} finally {
