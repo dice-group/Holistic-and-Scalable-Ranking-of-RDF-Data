@@ -43,7 +43,7 @@ In case of DBpedia and LUBM please combine several files into one using `cat *.t
 #### Prerequisites
 Maven is the only pre-requisite for  . The instructions to install maven can be found [here](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 
-### Installing
+#### Installing
 1. Once the maven is up and running. Clone the repository using the following command in a desired folder.
 2. Navigate to the base folder of the project and run the following command
     
@@ -61,7 +61,7 @@ Maven is the only pre-requisite for  . The instructions to install maven can be 
 #### Prerequisites
 Maven is the only pre-requisite for  . The instructions to install maven can be found [here](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 
-### Installing
+#### Installing
 1. Once the maven is up and running. Clone the repository using the following command in a desired folder.
 2. Navigate to the base folder of the project and run the following command
     
