@@ -11,6 +11,8 @@ HARE is implemented in following technologies :
 The SPARQL endpoint is available at :
 
 HARESearch Service is available at :
+
+The [publication](https://svn.aksw.org/papers/2017/ESWC_HARE/public.pdf) has been published in [IEEE Big Data 2017 Conference](http://cci.drexel.edu/bigdata/bigdata2017/).
  
 
 ## Build HARE
