@@ -49,11 +49,8 @@ Maven is the only pre-requisite for  . The instructions to install maven can be 
     
     `./run.sh`
 3. In order to change the dataset, replace the argument of the maven command in the script file (run.sh) with the location of the dataset. For example, 
-
 `mvn -e exec:java -Dexec.mainClass="org.aksw.dice.main.ResultsWriteHandler" -Dexec.args="-f <location of dataset>"  >`
-
 4. In order to perform a time evaluation, 
-
 `mvn -e exec:java -Dexec.mainClass="org.aksw.dice.main.TimeEvaluation" -Dexec.args="-f <location of dataset>"  >`
 
 ### HARE(Service)
