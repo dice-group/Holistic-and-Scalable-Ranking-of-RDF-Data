@@ -1,4 +1,4 @@
-# HARE
+# Holistic and Scalable Ranking of RDF Data (HARE)
 HARE is a ranking algorithm which allows the simultaneous computation of ranks for RDF triples, resources, properties and literals. HARE relies on the representation of RDF graphs as bi-partite graphs. It then employs a time-efficient extension of the random walk paradigm to bi-partite graphs. The worst-case complexity of HARE is O(n<sup>5</sup>) while that of PageRank is O(n<sup>6</sup>).
 
 HARE is implemented in following technologies :
