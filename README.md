@@ -76,3 +76,7 @@ Maven is the only pre-requisite for  . The instructions to install maven can be 
 4. The UI should be available at 
 
     `localhost:8080/index`
+
+
+##  HARE Results Datasets
+We have generated datasets with HARE ranks along with corresponding Pageranks available [here](https://hobbitdata.informatik.uni-leipzig.de/hare_results_wikidata/)
